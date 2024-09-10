@@ -1,8 +1,13 @@
+using TMPro;
 using UnityEngine;
 
 public class BControl : MonoBehaviour
 {
     private Rigidbody2D rb2d;
+    private int leftScore = 0, rightScore = 0;
+    [SerializeField] private TextMeshProUGUI leftScoreText, rightScoreText;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private TextMeshProUGUI winningInfoText;
 
     void Start()
     {
@@ -41,12 +46,36 @@ public class BControl : MonoBehaviour
         if (other.gameObject.CompareTag("Inv. Walls Right"))
         {
             RestartGame();
-            Debug.Log("Left Won");
+            leftScore++;
+            leftScoreText.text = leftScore.ToString();
+            Debug.Log("Left Scored");
+            if (leftScore == 11)
+            {
+                gameOverPanel.SetActive(true);
+                winningInfoText.text = "Left Player Won The Game!";
+                Time.timeScale = 0;
+            }
         }
         else if (other.gameObject.CompareTag("Inv. Walls Left"))
         {
             RestartGame();
-            Debug.Log("Right Won");
+            rightScore++;
+            rightScoreText.text = rightScore.ToString();
+            Debug.Log("Right Scored");
+            if (rightScore == 11)
+            {
+                gameOverPanel.SetActive(true);
+                winningInfoText.text = "Right Player Won The Game!";
+                Time.timeScale = 0;
+            }
         }
+    }
+    
+    public void RestartScene()
+    {
+        leftScore = 0;
+        rightScore = 0;
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }
