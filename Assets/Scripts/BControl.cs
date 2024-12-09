@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BControl : MonoBehaviour
 {
@@ -18,7 +20,7 @@ public class BControl : MonoBehaviour
     void GoBall()
     {
         float rand = Random.Range(0, 2);
-        
+
         if (rand < 1)
         {
             rb2d.AddForce(new Vector2(0.4f, -0.3f));
@@ -70,12 +72,21 @@ public class BControl : MonoBehaviour
             }
         }
     }
-    
+
     public void RestartScene()
     {
         leftScore = 0;
         rightScore = 0;
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    private void FixedUpdate()
+    {
+        if (rb2d.velocity.magnitude < 10)
+        {
+            rb2d.velocity = rb2d.velocity.normalized * 10;
+        }
+        // TODO: Manually accelerate the ball after each hit
     }
 }
