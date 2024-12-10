@@ -71,6 +71,17 @@ public class BControl : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+        // else if (other.gameObject.CompareTag("Inv. Walls Bottom") ||
+        //          other.gameObject.CompareTag("Inv. Walls Up"))
+        // {
+        //     // Manually accelerate the ball after each hit
+        //     rb2d.velocity = rb2d.velocity.normalized * (rb2d.velocity.magnitude + 2);
+        // }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            // Manually accelerate the ball after each hit
+            rb2d.velocity = rb2d.velocity.normalized * (rb2d.velocity.magnitude + 2);
+        }
     }
 
     public void RestartScene()
@@ -83,10 +94,15 @@ public class BControl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb2d.velocity.magnitude < 10)
+        if (rb2d.velocity.magnitude < 10) // Prevent the ball to get too slow
         {
             rb2d.velocity = rb2d.velocity.normalized * 10;
         }
-        // TODO: Manually accelerate the ball after each hit
+        else if (rb2d.velocity.magnitude > 20) // Prevent the ball to get too fast
+        {
+            rb2d.velocity = rb2d.velocity.normalized * 20;
+        }
+        
+        Debug.Log(rb2d.velocity.magnitude);
     }
 }
