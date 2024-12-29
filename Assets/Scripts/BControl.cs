@@ -102,7 +102,5 @@ public class BControl : MonoBehaviour
         {
             rb2d.velocity = rb2d.velocity.normalized * 20;
         }
-        
-        Debug.Log(rb2d.velocity.magnitude);
     }
 }
