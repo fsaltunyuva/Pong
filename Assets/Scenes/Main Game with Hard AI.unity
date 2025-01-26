@@ -2253,6 +2253,7 @@ MonoBehaviour:
   moveDown: 115
   speed: 10
   boundY: 2.25
+  ballRB: {fileID: 137377222}
 --- !u!50 &1027236554
 Rigidbody2D:
   serializedVersion: 4
