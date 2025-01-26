@@ -19,12 +19,12 @@ public class Control : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Ball"))
         {
-            print("Velocity vector after the ball hits the left player: " + ballRB.velocity);
+            Debug.Log("Velocity vector after the ball hits the left player: " + ballRB.velocity);
         }
     }
 
     /* Alternative solution to printing the velocity vector 0.25 secs after the ball hits the left player */
-    
+
     // void OnCollisionEnter2D(Collision2D other)
     // {
     //     if (other.gameObject.CompareTag("Ball"))
