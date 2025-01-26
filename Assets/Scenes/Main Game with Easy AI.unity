@@ -2782,10 +2782,10 @@ GameObject:
   - component: {fileID: 1255619222}
   - component: {fileID: 1255619221}
   - component: {fileID: 1255619226}
-  - component: {fileID: 1255619227}
   - component: {fileID: 1255619228}
+  - component: {fileID: 1255619229}
   m_Layer: 0
-  m_Name: Right Player
+  m_Name: AI
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2903,22 +2903,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1255619227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255619220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6bbdb5e9ff7e16468fe12226db7ff72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveUp: 273
-  moveDown: 274
-  speed: 10
-  boundY: 2.25
 --- !u!50 &1255619228
 Rigidbody2D:
   serializedVersion: 4
@@ -2946,6 +2930,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1255619229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255619220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fba4a3f2477bb4095a520959aad25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 137377220}
+  stepSize: 6
 --- !u!1 &1316491694
 GameObject:
   m_ObjectHideFlags: 0

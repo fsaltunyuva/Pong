@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Control : MonoBehaviour
@@ -7,11 +8,36 @@ public class Control : MonoBehaviour
     public float speed = 10.0f;
     public float boundY = 2.25f;
     private Rigidbody2D rb2d;
+    [SerializeField] private Rigidbody2D ballRB;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
     }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Ball"))
+        {
+            print("Velocity vector after the ball hits the left player: " + ballRB.velocity);
+        }
+    }
+
+    /* Alternative solution to printing the velocity vector 0.25 secs after the ball hits the left player */
+    
+    // void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Ball"))
+    //     {
+    //         StartCoroutine(PrintVelocityVector(ballRB.velocity));
+    //     }
+    // }
+
+    // IEnumerator PrintVelocityVector(Vector2 vector2)
+    // {
+    //     yield return new WaitForSeconds(0.25f);
+    //     print("Velocity vector 0.25 secs after the ball hits the left player: " + vector2);
+    // }
     
     void Update()
     {
