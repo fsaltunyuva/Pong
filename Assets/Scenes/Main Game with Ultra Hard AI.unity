@@ -456,6 +456,7 @@ MonoBehaviour:
   rightScoreText: {fileID: 681418579}
   gameOverPanel: {fileID: 665619553}
   winningInfoText: {fileID: 1098181585}
+  _ultraHardAIControlScript: {fileID: 1255619231}
 --- !u!1 &161987889
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +687,7 @@ GameObject:
   - component: {fileID: 455672675}
   m_Layer: 0
   m_Name: Inv. Walls Up
-  m_TagString: Untagged
+  m_TagString: Inv. Walls Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2116,8 +2117,8 @@ GameObject:
   - component: {fileID: 1027236552}
   - component: {fileID: 1027236551}
   - component: {fileID: 1027236550}
-  - component: {fileID: 1027236553}
   - component: {fileID: 1027236554}
+  - component: {fileID: 1027236555}
   m_Layer: 0
   m_Name: Left Player
   m_TagString: Player
@@ -2237,22 +2238,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1027236553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1027236547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6bbdb5e9ff7e16468fe12226db7ff72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveUp: 119
-  moveDown: 115
-  speed: 10
-  boundY: 2.25
 --- !u!50 &1027236554
 Rigidbody2D:
   serializedVersion: 4
@@ -2280,6 +2265,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1027236555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027236547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4363a37c567e9cb42ae5fe2b33b1fdb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveUp: 119
+  moveDown: 115
+  speed: 10
+  boundY: 2.25
+  ballRB: {fileID: 137377222}
+  _reflectableRaycaster: {fileID: 1255619230}
 --- !u!1 &1056432570
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,7 +2786,8 @@ GameObject:
   - component: {fileID: 1255619221}
   - component: {fileID: 1255619226}
   - component: {fileID: 1255619228}
-  - component: {fileID: 1255619229}
+  - component: {fileID: 1255619230}
+  - component: {fileID: 1255619231}
   m_Layer: 0
   m_Name: AI
   m_TagString: Player
@@ -2930,7 +2934,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1255619229
+--- !u!114 &1255619230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2939,11 +2943,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1255619220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fba4a3f2477bb4095a520959aad25c, type: 3}
+  m_Script: {fileID: 11500000, guid: 054e2f980bb634e47827eed450cee314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1255619231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255619220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903ce0ad56b4184d86823b24e984318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 137377220}
-  stepSize: 15
+  stepSize: 10
 --- !u!1 &1316491694
 GameObject:
   m_ObjectHideFlags: 0

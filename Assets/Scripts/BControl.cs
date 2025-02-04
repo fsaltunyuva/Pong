@@ -10,6 +10,7 @@ public class BControl : MonoBehaviour
     [SerializeField] private TextMeshProUGUI leftScoreText, rightScoreText;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI winningInfoText;
+    [SerializeField] private UltraHardAIControl _ultraHardAIControlScript;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class BControl : MonoBehaviour
         if (rand < 1)
         {
             rb2d.AddForce(new Vector2(0.4f, -0.3f));
+            _ultraHardAIControlScript.MoveToInvokePosition();
         }
         else
         {

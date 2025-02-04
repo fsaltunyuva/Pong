@@ -11,6 +11,7 @@ TagManager:
   - Right
   - Left
   - Ball
+  - AI
   layers:
   - Default
   - TransparentFX
