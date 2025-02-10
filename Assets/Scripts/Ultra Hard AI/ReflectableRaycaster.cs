@@ -10,10 +10,14 @@ public class ReflectableRaycaster : MonoBehaviour
     Vector2 origin;
     private bool isCalculationStarted = false;
     private UltraHardAIControl _ultraHardAIControlScript;
+    private LineRenderer _lineRenderer;
+    private int currentVertexIndex = 0;
 
     private void Start()
     {
         _ultraHardAIControlScript = GetComponent<UltraHardAIControl>();
+        _lineRenderer = GetComponent<LineRenderer>();
+        _lineRenderer.SetWidth(0.1f, 0.1f);
     }
 
     public void StartRaycastFrom(Vector2 originParam, Vector2 directionParam)
@@ -30,7 +34,10 @@ public class ReflectableRaycaster : MonoBehaviour
             hit = Physics2D.Raycast(origin, direction);
 
             Debug.DrawRay(origin, direction, Color.green);
-
+            
+            // _lineRenderer.positionCount += 1;
+            // _lineRenderer.SetPosition(currentVertexIndex++, origin);
+            
             if (hit)
             {
                 if (hit.collider.gameObject.CompareTag("Inv. Walls Up") || hit.collider.gameObject.CompareTag("Inv. Walls Bottom"))
