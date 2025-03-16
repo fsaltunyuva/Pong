@@ -12,6 +12,8 @@ public class ReflectableRaycaster : MonoBehaviour
     private UltraHardAIControl _ultraHardAIControlScript;
     private LineRenderer _lineRenderer;
     private int currentVertexIndex = 0;
+    [SerializeField] private LayerMask defaultLayerMask;
+    [SerializeField] private GameObject debugCircle;
 
     private void Start()
     {
@@ -31,9 +33,10 @@ public class ReflectableRaycaster : MonoBehaviour
     {
         if (isCalculationStarted)
         {
-            hit = Physics2D.Raycast(origin, direction);
+            hit = Physics2D.Raycast(origin, direction, Mathf.Infinity, defaultLayerMask);
 
-            Debug.DrawRay(origin, direction, Color.green);
+            Debug.DrawRay(origin, direction * 10, Color.green);
+            // Debug.Break();
             
             // _lineRenderer.positionCount += 1;
             // _lineRenderer.SetPosition(currentVertexIndex++, origin);
@@ -46,15 +49,17 @@ public class ReflectableRaycaster : MonoBehaviour
             
                     direction = Vector2.Reflect(direction, hit.normal);
 
-                    Debug.DrawRay(hit.point, direction, Color.blue); 
+                    Debug.DrawRay(hit.point, direction * 10, Color.blue); 
                     
                     origin = hit.point;
                 }
-                else if (hit.collider.gameObject.name == "AI" || hit.collider.gameObject.CompareTag("Inv. Walls Right"))
+                // else if (hit.collider.gameObject.CompareTag("AI") || hit.collider.gameObject.CompareTag("Inv. Walls Right"))
+                else if (hit.collider.gameObject.CompareTag("Inv. Walls Right"))
                 {
                     isCalculationStarted = false;
                     _ultraHardAIControlScript.MoveToCalculatedPosition(hit.point);
                     Debug.Log($"The calculated hit point is: {hit.point}");
+                    Instantiate(debugCircle, hit.point, Quaternion.identity);
                 }
                     
             }

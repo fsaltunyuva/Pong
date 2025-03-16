@@ -79,7 +79,7 @@ public class BControl : MonoBehaviour
         //     // Manually accelerate the ball after each hit
         //     rb2d.velocity = rb2d.velocity.normalized * (rb2d.velocity.magnitude + 2);
         // }
-        else if (other.gameObject.CompareTag("Player"))
+        else if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("AI"))
         {
             // Manually accelerate the ball after each hit
             rb2d.velocity = rb2d.velocity.normalized * (rb2d.velocity.magnitude + 2);
