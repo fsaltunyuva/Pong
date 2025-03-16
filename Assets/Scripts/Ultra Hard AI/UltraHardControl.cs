@@ -32,11 +32,11 @@ public class UltraHardControl : MonoBehaviour
     // {
     //     if (other.gameObject.CompareTag("Ball"))
     //     {
-    //         StartCoroutine(PrintVelocityVector(ballRB.velocity));
+    //         StartCoroutine(PrintVelocityVectorAfterSomeTime(ballRB.velocity));
     //     }
     // }
 
-    // IEnumerator PrintVelocityVector(Vector2 vector2)
+    // IEnumerator PrintVelocityVectorAfterSomeTime(Vector2 vector2)
     // {
     //     yield return new WaitForSeconds(0.25f);
     //     print("Velocity vector 0.25 secs after the ball hits the left player: " + vector2);

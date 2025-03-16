@@ -21,7 +21,6 @@ public class BControl : MonoBehaviour
     void GoBall()
     {
         float rand = Random.Range(0, 2);
-
         if (rand < 1)
         {
             rb2d.AddForce(new Vector2(0.4f, -0.3f));

@@ -36,7 +36,7 @@ public class ReflectableRaycaster : MonoBehaviour
             hit = Physics2D.Raycast(origin, direction, Mathf.Infinity, defaultLayerMask);
 
             Debug.DrawRay(origin, direction * 10, Color.green);
-            // Debug.Break();
+            Debug.Break();
             
             // _lineRenderer.positionCount += 1;
             // _lineRenderer.SetPosition(currentVertexIndex++, origin);
@@ -54,14 +54,13 @@ public class ReflectableRaycaster : MonoBehaviour
                     origin = hit.point;
                 }
                 // else if (hit.collider.gameObject.CompareTag("AI") || hit.collider.gameObject.CompareTag("Inv. Walls Right"))
-                else if (hit.collider.gameObject.CompareTag("Inv. Walls Right"))
+                else if (hit.collider.gameObject.CompareTag("Ultra Hard AI Hit Point Indicator Wall"))
                 {
                     isCalculationStarted = false;
                     _ultraHardAIControlScript.MoveToCalculatedPosition(hit.point);
                     Debug.Log($"The calculated hit point is: {hit.point}");
                     Instantiate(debugCircle, hit.point, Quaternion.identity);
                 }
-                    
             }
         }
     }

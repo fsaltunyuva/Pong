@@ -12,6 +12,7 @@ TagManager:
   - Left
   - Ball
   - AI
+  - Ultra Hard AI Hit Point Indicator Wall
   layers:
   - Default
   - TransparentFX
