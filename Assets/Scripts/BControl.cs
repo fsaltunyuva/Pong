@@ -24,7 +24,10 @@ public class BControl : MonoBehaviour
         if (rand < 1)
         {
             rb2d.AddForce(new Vector2(0.4f, -0.3f));
-            _ultraHardAIControlScript.MoveToInvokePosition();
+    
+            if(_ultraHardAIControlScript != null)
+                _ultraHardAIControlScript.MoveToInvokePosition();
+            
         }
         else
         {
