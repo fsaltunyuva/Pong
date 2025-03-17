@@ -11,6 +11,6 @@ public class AIControl : MonoBehaviour
     {
         float step = stepSize * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, 
-            new Vector2(transform.position.x, ball.position.y), step);
+            new Vector2(transform.position.x, Mathf.Clamp(ball.position.y, -4.2f, 4.19f)), step);
     }
 }

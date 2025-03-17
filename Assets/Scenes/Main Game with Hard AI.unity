@@ -456,6 +456,7 @@ MonoBehaviour:
   rightScoreText: {fileID: 681418579}
   gameOverPanel: {fileID: 665619553}
   winningInfoText: {fileID: 1098181585}
+  _ultraHardAIControlScript: {fileID: 0}
 --- !u!1 &161987889
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,6 +2255,7 @@ MonoBehaviour:
   speed: 10
   boundY: 2.25
   ballRB: {fileID: 137377222}
+  _reflectableRaycaster: {fileID: 0}
 --- !u!50 &1027236554
 Rigidbody2D:
   serializedVersion: 4

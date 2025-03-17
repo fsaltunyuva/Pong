@@ -21,7 +21,7 @@ public class UltraHardAIControl : MonoBehaviour
         else if (shouldIGoToCalculatedPosition)
         {
             transform.position = Vector2.MoveTowards(transform.position, 
-                new Vector2(transform.position.x, calculatedPosition.y), step);
+                new Vector2(transform.position.x, Mathf.Clamp(calculatedPosition.y, -4.2f, 4.19f)), step);
         }
         else if (shouldIGoToMid)
         {

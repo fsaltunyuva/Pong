@@ -18,8 +18,8 @@ public class ReflectableRaycaster : MonoBehaviour
     private void Start()
     {
         _ultraHardAIControlScript = GetComponent<UltraHardAIControl>();
-        _lineRenderer = GetComponent<LineRenderer>();
-        _lineRenderer.SetWidth(0.1f, 0.1f);
+        // _lineRenderer = GetComponent<LineRenderer>();
+        // _lineRenderer.SetWidth(0.1f, 0.1f);
     }
 
     public void StartRaycastFrom(Vector2 originParam, Vector2 directionParam)
