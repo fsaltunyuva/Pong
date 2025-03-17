@@ -1,6 +1,6 @@
 # Pong
 
-​A replica of the game "Pong" made in Unity.
+​A replica of the game ["Pong"](https://en.wikipedia.org/wiki/Pong) made in Unity.
 
 The game can be played by using [this link.](https://fsaltunyuva.itch.io/pong)
 
