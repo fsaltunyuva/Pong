@@ -56,7 +56,7 @@ public class ReflectableRaycaster : MonoBehaviour
                 {
                     _ultraHardAIControlScript.MoveToCalculatedPosition(hit.point);
                     Debug.Log($"The calculated hit point is: {hit.point}");
-                    Instantiate(debugCircle, hit.point, Quaternion.identity);
+                    // Instantiate(debugCircle, hit.point, Quaternion.identity);
                     Debug.LogWarning("Calculation Done.");
                     break;
                 }
