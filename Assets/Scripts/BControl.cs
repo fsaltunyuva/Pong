@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+using UnityEngine.SceneManagement;
 public class BControl : MonoBehaviour
 {
     private Rigidbody2D rb2d;
@@ -11,10 +11,14 @@ public class BControl : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI winningInfoText;
     [SerializeField] private UltraHardAIControl _ultraHardAIControlScript;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip paddleSFX, wallSFX, scoreSFX;
+
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         Invoke("GoBall", 1);
     }
 
@@ -51,6 +55,7 @@ public class BControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Inv. Walls Right"))
         {
+            audioSource.PlayOneShot(scoreSFX);
             RestartGame();
             leftScore++;
             leftScoreText.text = leftScore.ToString();
@@ -64,6 +69,7 @@ public class BControl : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Inv. Walls Left"))
         {
+            audioSource.PlayOneShot(scoreSFX);
             RestartGame();
             rightScore++;
             rightScoreText.text = rightScore.ToString();
@@ -75,14 +81,16 @@ public class BControl : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
-        // else if (other.gameObject.CompareTag("Inv. Walls Bottom") ||
-        //          other.gameObject.CompareTag("Inv. Walls Up"))
-        // {
-        //     // Manually accelerate the ball after each hit
-        //     rb2d.velocity = rb2d.velocity.normalized * (rb2d.velocity.magnitude + 2);
-        // }
+        else if (other.gameObject.CompareTag("Inv. Walls Bottom") ||
+                 other.gameObject.CompareTag("Inv. Walls Up"))
+        {
+            // Manually accelerate the ball after each hit
+            // rb2d.velocity = rb2d.velocity.normalized * (rb2d.velocity.magnitude + 2);
+            audioSource.PlayOneShot(wallSFX);
+        }
         else if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("AI"))
         {
+            audioSource.PlayOneShot(paddleSFX);
             // Manually accelerate the ball after each hit
             rb2d.velocity = rb2d.velocity.normalized * (rb2d.velocity.magnitude + 2);
         }
@@ -93,7 +101,7 @@ public class BControl : MonoBehaviour
         leftScore = 0;
         rightScore = 0;
         Time.timeScale = 1;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void FixedUpdate()

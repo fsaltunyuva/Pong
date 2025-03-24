@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 137377221}
   - component: {fileID: 137377222}
   - component: {fileID: 137377223}
+  - component: {fileID: 137377224}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -456,6 +457,106 @@ MonoBehaviour:
   rightScoreText: {fileID: 681418579}
   gameOverPanel: {fileID: 665619553}
   winningInfoText: {fileID: 1098181585}
+  _ultraHardAIControlScript: {fileID: 0}
+  paddleSFX: {fileID: 8300000, guid: 0fc23b736098895418bb201e2cb7fbd8, type: 3}
+  wallSFX: {fileID: 8300000, guid: 9cf1cda63dbb3c04ba1608c89c9e2d87, type: 3}
+  scoreSFX: {fileID: 8300000, guid: ba9560690d526f740a72efd44c8c3253, type: 3}
+--- !u!82 &137377224
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137377217}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &161987889
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +787,7 @@ GameObject:
   - component: {fileID: 455672675}
   m_Layer: 0
   m_Name: Inv. Walls Up
-  m_TagString: Untagged
+  m_TagString: Inv. Walls Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -906,7 +1007,6 @@ GameObject:
   - component: {fileID: 521162873}
   - component: {fileID: 521162872}
   - component: {fileID: 521162871}
-  - component: {fileID: 521162874}
   m_Layer: 0
   m_Name: Inv. Walls Left
   m_TagString: Inv. Walls Left
@@ -1026,18 +1126,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2101380270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &521162874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521162870}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72dcf9b8c680f1f4c8378504edc8415a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &540815162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2341,8 @@ MonoBehaviour:
   moveDown: 115
   speed: 10
   boundY: 2.25
+  ballRB: {fileID: 0}
+  _reflectableRaycaster: {fileID: 0}
 --- !u!50 &1027236554
 Rigidbody2D:
   serializedVersion: 4
@@ -2421,7 +2511,6 @@ GameObject:
   - component: {fileID: 1097618198}
   - component: {fileID: 1097618197}
   - component: {fileID: 1097618196}
-  - component: {fileID: 1097618199}
   m_Layer: 0
   m_Name: Inv. Walls Right
   m_TagString: Inv. Walls Right
@@ -2541,18 +2630,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2101380270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &1097618199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1097618193}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72dcf9b8c680f1f4c8378504edc8415a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1098181584
 GameObject:
   m_ObjectHideFlags: 0
